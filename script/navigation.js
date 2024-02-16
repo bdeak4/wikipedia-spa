@@ -1,9 +1,9 @@
 const handleFirstPageLoad = () => {
-  const bodyObserver = new MutationObserver(() => {
+  const pageObserver = new MutationObserver(() => {
     handlePageLoad();
   });
 
-  bodyObserver.observe(document.querySelector("body"), {
+  pageObserver.observe(document.getElementById("page-content"), {
     childList: true,
   });
 
@@ -17,21 +17,30 @@ const handlePageLoad = () => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
 
-      fetch(el.href)
-        .then((r) => r.text())
-        .then((html) => {
-          handlePageReplace(el.href, html);
-        });
+      handleLinkClick(el.href);
     });
   });
+};
+
+const handleLinkClick = (href) => {
+  document
+    .querySelector("body")
+    .insertAdjacentHTML("beforeend", '<div id="spinner"></div>');
+
+  fetch(href)
+    .then((r) => r.text())
+    .then((html) => {
+      handlePageReplace(href, html);
+      document.getElementById("spinner").remove();
+    });
 };
 
 const handlePageReplace = (href, html) => {
   const parser = new DOMParser();
   const newDocument = parser.parseFromString(html, "text/html");
 
-  document.querySelector("body").innerHTML =
-    newDocument.querySelector("body").innerHTML;
+  document.getElementById("page-content").innerHTML =
+    newDocument.getElementById("page-content").innerHTML;
 
   document.querySelector("title").innerText =
     newDocument.querySelector("title").innerText;
