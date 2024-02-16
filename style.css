@@ -1,0 +1,68 @@
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+}
+
+main {
+  max-width: 950px;
+}
+
+.rightalign {
+  float: right;
+  margin-left: 8px;
+  width: 350px;
+}
+
+.leftalign {
+  float: left;
+  margin-right: 8px;
+  width: 150px;
+}
+
+footer {
+  max-width: 1400px;
+}
+
+.copy {
+  font-size: 12px;
+  text-align: center;
+}
+
+header,
+main,
+footer {
+  padding: 8px 24px;
+  margin: 0 auto;
+}
