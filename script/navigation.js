@@ -11,8 +11,6 @@ const handleFirstPageLoad = () => {
 };
 
 const handlePageLoad = () => {
-  console.log("called handlePageLoad()");
-
   document.querySelectorAll("a").forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
@@ -46,8 +44,6 @@ const handlePageReplace = (href, html) => {
     newDocument.querySelector("title").innerText;
 
   history.pushState({}, "", href);
-
-  console.log("replaced <body> content");
 };
 
 document.addEventListener("DOMContentLoaded", handleFirstPageLoad);
