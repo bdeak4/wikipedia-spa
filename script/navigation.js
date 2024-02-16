@@ -3,7 +3,7 @@ const handleFirstPageLoad = () => {
     handlePageLoad();
   });
 
-  pageObserver.observe(document.getElementById("page-content"), {
+  pageObserver.observe(document.getElementById("root"), {
     childList: true,
   });
 
@@ -39,8 +39,8 @@ const handlePageReplace = (href, html) => {
   const parser = new DOMParser();
   const newDocument = parser.parseFromString(html, "text/html");
 
-  document.getElementById("page-content").innerHTML =
-    newDocument.getElementById("page-content").innerHTML;
+  document.getElementById("root").innerHTML =
+    newDocument.getElementById("root").innerHTML;
 
   document.querySelector("title").innerText =
     newDocument.querySelector("title").innerText;
