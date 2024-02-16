@@ -97,3 +97,15 @@ h1 {
     transform: rotate(360deg);
   }
 }
+
+:not(a) > img {
+  transition: transform 250ms ease-out;
+}
+
+:not(a) > img:hover {
+  cursor: zoom-in;
+}
+
+:not(a) > img.zoomed {
+  cursor: zoom-out;
+}

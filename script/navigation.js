@@ -11,6 +11,8 @@ const handleFirstPageLoad = () => {
 };
 
 const handlePageLoad = () => {
+  document.dispatchEvent(new Event("page-load"));
+
   document.querySelectorAll("a").forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
