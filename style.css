@@ -66,3 +66,13 @@ footer {
   padding: 8px 24px;
   margin: 0 auto;
 }
+
+h1 {
+  margin: 8px 0;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
