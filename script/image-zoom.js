@@ -1,5 +1,5 @@
 document.addEventListener("page-load", () => {
-  document.querySelectorAll(":not(a) > img").forEach((el) => {
+  document.querySelectorAll(".content img").forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
 
